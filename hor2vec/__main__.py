@@ -94,8 +94,8 @@ def hor2vec(args):
     vertical_lines_array = tuple(zip(*filled_horizontal_lines_array))
 
     vertical_lines = '\n'.join(
-        (args.sep).join(vertical_line_array)[::1 - 2*(args.line_direction == "r2l")].rstrip()
-        for vertical_line_array in vertical_lines_array[::1 - 2*(args.word_direction == "b2t")]
+        (args.sep).join(vertical_line_array)[::(1 - 2*(args.line_direction == "r2l"))].rstrip()
+        for vertical_line_array in vertical_lines_array[::(1 - 2*(args.word_direction == "b2t"))]
     )
     print(vertical_lines)
 
