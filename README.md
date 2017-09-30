@@ -23,7 +23,7 @@ Change your pure text arrangement to what you want it to be
 ## Usage  
   
 ```  
-usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [input]  
+usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [input]  
   
 positional arguments:  
   input                 The file contains puretext to be re-arranged. If not  
@@ -41,6 +41,8 @@ optional arguments:
   -wd {t2b,b2t}, --word-direction {t2b,b2t}  
                         The reading direction of each word. Default is 't2b'  
                         (top to bottom), you can choose 'b2t' (bottom to top).  
+  -nr, --no-rotate      If this optioin has been given, hor2vec won't rotate  
+                        the input.  
 ```  
   
 ---  
@@ -124,6 +126,28 @@ $ python hor2vec -s '|' -ld r2l -wd b2t tests/data/chinese_test_data.txt
 再|相|我|學|試|我|我  
 ```  
   
+```  
+$ python hor2vec -nr -ld r2l tests/data/chinese_test_data.txt  
+　途旅的生陌個一上踏要我  
+　度溫的伴陪你有記忘會我  
+　獨孤憾遺最中心下放著試  
+　　　　　　　　福祝著學  
+人的敢勇最界世全成變要我  
+路的好最是都排安切一信相  
+　　　　　　　　　　見再  
+```  
+  
+```  
+$ python hor2vec -nr -ld r2l -wd b2t tests/data/chinese_test_data.txt  
+　　　　　　　　　　見再  
+路的好最是都排安切一信相  
+人的敢勇最界世全成變要我  
+　　　　　　　　福祝著學  
+　獨孤憾遺最中心下放著試  
+　度溫的伴陪你有記忘會我  
+　途旅的生陌個一上踏要我  
+```  
+  
 ### English  
   
 ```  
@@ -182,4 +206,32 @@ $ python hor2vec -s ' ' -ld r2l -wd b2t tests/data/english_test_data.txt
     n   i u     n  
   e a   r o e o a  
 ? w C   f y b t w I  
+```  
+  
+```  
+$ python hor2vec -nr -ld r2l tests/data/english_test_data.txt  
+      I  
+   tnaw  
+     ot  
+     eb  
+   ruoy  
+.dneirf  
+  
+    naC  
+     ew  
+      ?  
+```  
+  
+```  
+$ python hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt  
+      ?  
+     ew  
+    naC  
+  
+.dneirf  
+   ruoy  
+     eb  
+     ot  
+   tnaw  
+      I  
 ```  
