@@ -1,2 +1,6 @@
-#Vim
+# Vim
 *.sw*
+
+# Python
+*.py+
+__pycache__/
