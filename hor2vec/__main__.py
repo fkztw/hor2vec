@@ -69,10 +69,11 @@ def fill_white_spaces(line_tuple, max_length, args):
     if not all(map(is_ascii, line_tuple)):
         white_space = FULLWIDTH_SPACE
 
-        if args.line_direction == 'l2r':
-            line_list = [c + ' ' if is_ascii(c) else c for c in line_list]
-        elif args.line_direction == 'r2l':
-            line_list = [' ' + c if is_ascii(c) else c for c in line_list]
+        line_list = [
+            (("{} ", " {}")[args.line_direction == "r2l"]).format(c)
+            if is_ascii(c) else c
+            for c in line_list
+        ]
 
     line_list += [white_space] * (max_length - len(line_list))
     return tuple(line_list)
