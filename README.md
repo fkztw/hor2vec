@@ -63,7 +63,7 @@ $ cat tests/data/chinese_test_data.txt
 ```  
   
 ```  
-$ python hor2vec tests/data/chinese_test_data.txt  
+$ python3 hor2vec tests/data/chinese_test_data.txt  
 我我試學我相再  
 要會著著要信見  
 踏忘放祝變一  
@@ -79,7 +79,7 @@ $ python hor2vec tests/data/chinese_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -s '|' tests/data/chinese_test_data.txt  
+$ python3 hor2vec -s '|' tests/data/chinese_test_data.txt  
 我|我|試|學|我|相|再  
 要|會|著|著|要|信|見  
 踏|忘|放|祝|變|一|  
@@ -95,7 +95,7 @@ $ python hor2vec -s '|' tests/data/chinese_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -s '|' -ld r2l tests/data/chinese_test_data.txt  
+$ python3 hor2vec -s '|' -ld r2l tests/data/chinese_test_data.txt  
 再|相|我|學|試|我|我  
 見|信|要|著|著|會|要  
 　|一|變|祝|放|忘|踏  
@@ -111,7 +111,7 @@ $ python hor2vec -s '|' -ld r2l tests/data/chinese_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -s '|' -ld r2l -wd b2t tests/data/chinese_test_data.txt  
+$ python3 hor2vec -s '|' -ld r2l -wd b2t tests/data/chinese_test_data.txt  
 　|路|人|　|　|　|  
 　|的|的|　|獨|度|途  
 　|好|敢|　|孤|溫|旅  
@@ -127,7 +127,7 @@ $ python hor2vec -s '|' -ld r2l -wd b2t tests/data/chinese_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -nr -ld r2l tests/data/chinese_test_data.txt  
+$ python3 hor2vec -nr -ld r2l tests/data/chinese_test_data.txt  
 　途旅的生陌個一上踏要我  
 　度溫的伴陪你有記忘會我  
 　獨孤憾遺最中心下放著試  
@@ -138,7 +138,7 @@ $ python hor2vec -nr -ld r2l tests/data/chinese_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -nr -ld r2l -wd b2t tests/data/chinese_test_data.txt  
+$ python3 hor2vec -nr -ld r2l -wd b2t tests/data/chinese_test_data.txt  
 　　　　　　　　　　見再  
 路的好最是都排安切一信相  
 人的敢勇最界世全成變要我  
@@ -165,7 +165,7 @@ we
 ```  
   
 ```  
-$ python hor2vec tests/data/english_test_data.txt  
+$ python3 hor2vec tests/data/english_test_data.txt  
 Iwtbyf Cw?  
  aoeor ae  
  n  ui n  
@@ -176,7 +176,7 @@ Iwtbyf Cw?
 ```  
   
 ```  
-$ python hor2vec -s ' ' tests/data/english_test_data.txt  
+$ python3 hor2vec -s ' ' tests/data/english_test_data.txt  
 I w t b y f   C w ?  
   a o e o r   a e  
   n     u i   n  
@@ -187,7 +187,7 @@ I w t b y f   C w ?
 ```  
   
 ```  
-$ python hor2vec -s ' ' -ld r2l tests/data/english_test_data.txt  
+$ python3 hor2vec -s ' ' -ld r2l tests/data/english_test_data.txt  
 ? w C   f y b t w I  
   e a   r o e o a  
     n   i u     n  
@@ -198,7 +198,7 @@ $ python hor2vec -s ' ' -ld r2l tests/data/english_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -s ' ' -ld r2l -wd b2t tests/data/english_test_data.txt  
+$ python3 hor2vec -s ' ' -ld r2l -wd b2t tests/data/english_test_data.txt  
         .  
         d  
         n  
@@ -209,7 +209,7 @@ $ python hor2vec -s ' ' -ld r2l -wd b2t tests/data/english_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -nr -ld r2l tests/data/english_test_data.txt  
+$ python3 hor2vec -nr -ld r2l tests/data/english_test_data.txt  
       I  
    tnaw  
      ot  
@@ -223,7 +223,7 @@ $ python hor2vec -nr -ld r2l tests/data/english_test_data.txt
 ```  
   
 ```  
-$ python hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt  
+$ pythonA3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt  
       ?  
      ew  
     naC  
