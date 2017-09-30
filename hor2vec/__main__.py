@@ -14,14 +14,20 @@ def get_args():
         type=argparse.FileType('r'),
         nargs='?',
         default=sys.stdin,
-        help="The file contains puretext to be re-arranged. If not been given in the command, will use the stdin as input."
+        help=(
+            "The file contains puretext to be re-arranged. "
+            "If not been given in the command, will use the stdin as input."
+        )
     )
 
     parser.add_argument(
         '-s', '--sep', '--seprator',
         type=str,
         default='',
-        help="The seperator between lines. Default is '', you can use ' ', '|' or any other strings."
+        help=(
+            "The seperator between lines. "
+            "Default is '', you can use ' ', '|' or any other strings."
+        )
     )
 
     parser.add_argument(
@@ -29,7 +35,11 @@ def get_args():
         type=str,
         default='l2r',
         choices=['l2r', 'r2l'],
-        help="The reading direction of each line. Default is 'l2r' (left to right), you can choose 'r2l' (right to left)."
+        help=(
+            "The reading direction of each line. "
+            "Default is 'l2r' (left to right), "
+            "you can choose 'r2l' (right to left)."
+        )
     )
 
     parser.add_argument(
@@ -37,7 +47,11 @@ def get_args():
         type=str,
         default='t2b',
         choices=['t2b', 'b2t'],
-        help="The reading direction of each word. Default is 't2b' (top to bottom), you can choose 'b2t' (bottom to top)."
+        help=(
+            "The reading direction of each word. "
+            "Default is 't2b' (top to bottom), "
+            "you can choose 'b2t' (bottom to top)."
+        )
     )
 
     return parser.parse_args()
