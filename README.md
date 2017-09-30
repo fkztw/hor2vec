@@ -223,7 +223,7 @@ $ python3 hor2vec -nr -ld r2l tests/data/english_test_data.txt
 ```  
   
 ```  
-$ pythonA3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt  
+$ python3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt  
       ?  
      ew  
     naC  
