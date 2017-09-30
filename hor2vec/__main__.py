@@ -101,15 +101,15 @@ def hor2vec(args):
     )
 
     if args.no_rotate:
-        vertical_lines_array = filled_input_lines_array
+        output_lines_array = filled_input_lines_array
     else:
-        vertical_lines_array = tuple(zip(*filled_input_lines_array))
+        output_lines_array = tuple(zip(*filled_input_lines_array))
 
-    vertical_lines = '\n'.join(
-        (args.sep).join(vertical_line_array)[::(1 - 2*(args.line_direction == "r2l"))].rstrip()
-        for vertical_line_array in vertical_lines_array[::(1 - 2*(args.word_direction == "b2t"))]
+    output_lines = '\n'.join(
+        (args.sep).join(output_line_array)[::(1 - 2*(args.line_direction == "r2l"))].rstrip()
+        for output_line_array in output_lines_array[::(1 - 2*(args.word_direction == "b2t"))]
     )
-    print(vertical_lines)
+    print(output_lines)
 
 
 if __name__ == "__main__":
