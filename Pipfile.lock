@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6fb470008341f66343b99ccdb22e5576fcf84007a8f8df20202e27d1f1d2f7db"
+            "sha256": "d56f51bcfc94f3fbc2d200b9ec255f5318986ada770000fd79e6f90bd2e9dde1"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -41,12 +41,27 @@
             ],
             "version": "==3.0.4"
         },
+        "docutils": {
+            "hashes": [
+                "sha256:7a4bd47eaf6596e1295ecb11361139febe29b084a87bf005bf899f9a42edc3c6",
+                "sha256:02aec4bd92ab067f6ff27a38a38a41173bf01bed8f89157768c1573f53e474a6",
+                "sha256:51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274"
+            ],
+            "version": "==0.14"
+        },
         "flake8": {
             "hashes": [
                 "sha256:f1a9d8886a9cbefb52485f4f4c770832c7fb569c084a9a314fb1eaa37c0c2c86",
                 "sha256:c20044779ff848f67f89c56a0e4624c04298cd476e25253ac0c36f910a1a11d8"
             ],
             "version": "==3.4.1"
+        },
+        "flit": {
+            "hashes": [
+                "sha256:50e217ded7a0670f838209e164b1b8c64e22bba0a86a1ba219d662956be48580",
+                "sha256:8ba7603cc3bf4149d81811d40fe331abc45ff37a207c63f5f712a0fdb69297bb"
+            ],
+            "version": "==0.11.4"
         },
         "idna": {
             "hashes": [
@@ -102,6 +117,12 @@
                 "sha256:9c443e7324ba5b85070c4a818ade28bfabedf16ea10206da1132edaa6dda237e"
             ],
             "version": "==2.18.4"
+        },
+        "requests-download": {
+            "hashes": [
+                "sha256:07832a93314bcd619aaeb08611ae245728e66672efb930bc2a300a115a47dab7"
+            ],
+            "version": "==0.1.1"
         },
         "resumable-urlretrieve": {
             "hashes": [
