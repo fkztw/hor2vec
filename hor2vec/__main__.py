@@ -54,6 +54,13 @@ def get_args():
         )
     )
 
+    parser.add_argument(
+        '-nr', '--no-rotate',
+        action='store_true',
+        default=False,
+        help="If this optioin has been given, hor2vec won't rotate the input."
+    )
+
     return parser.parse_args()
 
 
@@ -91,7 +98,10 @@ def hor2vec(args):
         for line in horizontal_lines_array
     )
 
-    vertical_lines_array = tuple(zip(*filled_horizontal_lines_array))
+    if args.no_rotate:
+        vertical_lines_array = filled_horizontal_lines_array
+    else:
+        vertical_lines_array = tuple(zip(*filled_horizontal_lines_array))
 
     vertical_lines = '\n'.join(
         (args.sep).join(vertical_line_array)[::(1 - 2*(args.line_direction == "r2l"))].rstrip()
