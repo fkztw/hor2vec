@@ -47,6 +47,8 @@ optional arguments:
   
 ## Examples  
   
+### Chinese  
+  
 ```  
 $ cat tests/data/chinese_test_data.txt  
 我要踏上一個陌生的旅途  
@@ -120,4 +122,64 @@ $ python hor2vec -s '|' -ld r2l -wd b2t tests/data/chinese_test_data.txt
 　|一|變|祝|放|忘|踏  
 見|信|要|著|著|會|要  
 再|相|我|學|試|我|我  
+```  
+  
+### English  
+  
+```  
+$ cat tests/data/english_test_data.txt  
+I  
+want  
+to  
+be  
+your  
+friend.  
+  
+Can  
+we  
+?  
+```  
+  
+```  
+$ python hor2vec tests/data/english_test_data.txt  
+Iwtbyf Cw?  
+ aoeor ae  
+ n  ui n  
+ t  re  
+     n  
+     d  
+     .  
+```  
+  
+```  
+$ python hor2vec -s ' ' tests/data/english_test_data.txt  
+I w t b y f   C w ?  
+  a o e o r   a e  
+  n     u i   n  
+  t     r e  
+          n  
+          d  
+          .  
+```  
+  
+```  
+$ python hor2vec -s ' ' -ld r2l tests/data/english_test_data.txt  
+? w C   f y b t w I  
+  e a   r o e o a  
+    n   i u     n  
+        e r     t  
+        n  
+        d  
+        .  
+```  
+  
+```  
+$ python hor2vec -s ' ' -ld r2l -wd b2t tests/data/english_test_data.txt  
+        .  
+        d  
+        n  
+        e r     t  
+    n   i u     n  
+  e a   r o e o a  
+? w C   f y b t w I  
 ```  
