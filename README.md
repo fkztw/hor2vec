@@ -12,6 +12,14 @@ Change your pure text arrangement to what you want it to be
   
 ---  
   
+## Installation  
+  
+### GitHub  
+  
+`$ git clone https://github.com/M157q/hor2vec`  
+  
+---  
+  
 ## Usage  
   
 ```  
