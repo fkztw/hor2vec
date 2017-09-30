@@ -26,7 +26,7 @@ Change your pure text arrangement to what you want it to be
 usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [input]  
   
 positional arguments:  
-  input                 The file contains puretext to be re-arranged. If not  
+  input                 The file contains pure text to be re-arranged. If not  
                         been given in the command, will use the stdin as  
                         input.  
   

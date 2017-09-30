@@ -15,7 +15,7 @@ def get_args():
         nargs='?',
         default=sys.stdin,
         help=(
-            "The file contains puretext to be re-arranged. "
+            "The file contains pure text to be re-arranged. "
             "If not been given in the command, will use the stdin as input."
         )
     )
