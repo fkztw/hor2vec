@@ -1,5 +1,5 @@
+import argparse
 import sys
-from argparse import ArgumentParser
 
 
 HALFWIDTH_SPACE = ' '
@@ -7,13 +7,14 @@ FULLWIDTH_SPACE = '　'
 
 
 def get_args():
-    parser = ArgumentParser()
+    parser = argparse.ArgumentParser()
 
     parser.add_argument(
-        'content',
-        type=str,
+        'input',
+        type=argparse.FileType('r'),
         nargs='?',
-        help="Pure text to be rearrange. If not been given in the command, will use the stdin as input."
+        default=sys.stdin,
+        help="The file contains puretext to be re-arranged. If not been given in the command, will use the stdin as input."
     )
 
     parser.add_argument(
@@ -64,7 +65,7 @@ def fill_white_spaces(line_tuple, max_length, args):
 
 
 def hor2vec(args):
-    content = args.content or ''.join(sys.stdin.readlines())
+    content = ''.join(args.input.readlines())
 
     horizontal_lines = content.rstrip().split('\n')
 
