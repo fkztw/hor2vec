@@ -91,19 +91,19 @@ def fill_white_spaces(line_tuple, max_length, args):
 def hor2vec(args):
     content = ''.join(args.input.readlines())
 
-    horizontal_lines = content.rstrip().split('\n')
+    input_lines = content.rstrip().split('\n')
 
-    horizontal_lines_array = tuple(map(tuple, horizontal_lines))
-    len_of_longest_line = max(map(len, horizontal_lines_array))
-    filled_horizontal_lines_array = tuple(
+    input_lines_array = tuple(map(tuple, input_lines))
+    len_of_longest_line = max(map(len, input_lines_array))
+    filled_input_lines_array = tuple(
         fill_white_spaces(line, len_of_longest_line, args)
-        for line in horizontal_lines_array
+        for line in input_lines_array
     )
 
     if args.no_rotate:
-        vertical_lines_array = filled_horizontal_lines_array
+        vertical_lines_array = filled_input_lines_array
     else:
-        vertical_lines_array = tuple(zip(*filled_horizontal_lines_array))
+        vertical_lines_array = tuple(zip(*filled_input_lines_array))
 
     vertical_lines = '\n'.join(
         (args.sep).join(vertical_line_array)[::(1 - 2*(args.line_direction == "r2l"))].rstrip()
