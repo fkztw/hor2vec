@@ -1,8 +1,45 @@
 import sys
+from argparse import ArgumentParser
 
 
 HALFWIDTH_SPACE = ' '
 FULLWIDTH_SPACE = '　'
+
+
+def get_args():
+    parser = ArgumentParser()
+
+    parser.add_argument(
+        'content',
+        type=str,
+        nargs='?',
+        help="Pure text to be rearrange. If not been given in the command, will use the stdin as input."
+    )
+
+    parser.add_argument(
+        '-s', '--sep', '--seprator',
+        type=str,
+        default='',
+        help="The seperator between lines. Default is '', you can use ' ', '|' or any other strings."
+    )
+
+    parser.add_argument(
+        '-ld', '--line-direction',
+        type=str,
+        default='l2r',
+        choices=['l2r', 'r2l'],
+        help="The reading direction of each line. Default is 'l2r' (left to right), you can choose 'r2l' (right to left)."
+    )
+
+    parser.add_argument(
+        '-wd', '--word-direction',
+        type=str,
+        default='t2b',
+        choices=['t2b', 'b2t'],
+        help="The reading direction of each word. Default is 't2b' (top to bottom), you can choose 'b2t' (bottom to top)."
+    )
+
+    return parser.parse_args()
 
 
 def is_ascii(c):
@@ -23,7 +60,7 @@ def fill_white_spaces(line_tuple, max_length):
     return tuple(line_list)
 
 
-def hor2vec():
+def hor2vec(args):
     content = ''.join(sys.stdin.readlines())
 
     horizontal_lines = content.rstrip().split('\n')
@@ -46,4 +83,5 @@ def hor2vec():
 
 
 if __name__ == "__main__":
-    hor2vec()
+    args = get_args()
+    hor2vec(args)
