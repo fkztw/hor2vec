@@ -17,7 +17,7 @@ def get_args():
         nargs='?',
         default=sys.stdin,
         help=(
-            "The file contains pure text to be re-arranged. "
+            "The file contains horizontal pure text to be changed to vertical. "
             "If not been given in the command, will use the stdin as input."
         )
     )
@@ -50,7 +50,7 @@ def get_args():
         default='t2b',
         choices=['t2b', 'b2t'],
         help=(
-            "The reading direction of each word. "
+            "The reading direction of each word/character. "
             "Default is 't2b' (top to bottom), "
             "you can choose 'b2t' (bottom to top)."
         )

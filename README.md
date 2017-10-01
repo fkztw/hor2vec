@@ -26,9 +26,9 @@ Change your horizontal pure text to vertical with some options.
 usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [input]  
   
 positional arguments:  
-  input                 The file contains pure text to be re-arranged. If not  
-                        been given in the command, will use the stdin as  
-                        input.  
+  input                 The file contains horizontal pure text to be changed  
+                        to vertical. If not been given in the command, will  
+                        use the stdin as input.  
   
 optional arguments:  
   -h, --help            show this help message and exit  
@@ -39,8 +39,9 @@ optional arguments:
                         The reading direction of each line. Default is 'l2r'  
                         (left to right), you can choose 'r2l' (right to left).  
   -wd {t2b,b2t}, --word-direction {t2b,b2t}  
-                        The reading direction of each word. Default is 't2b'  
-                        (top to bottom), you can choose 'b2t' (bottom to top).  
+                        The reading direction of each word/character. Default  
+                        is 't2b' (top to bottom), you can choose 'b2t' (bottom  
+                        to top).  
   -nr, --no-rotate      If this optioin has been given, hor2vec won't rotate  
                         the input.  
 ```  
