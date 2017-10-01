@@ -8,7 +8,7 @@
 |_| |_|\___/|_| |_____| \_/ \___|\___|  
 ```  
   
-Change your pure text arrangement to what you want it to be  
+Change your horizontal pure text to vertical with some options.  
   
 ---  
   
