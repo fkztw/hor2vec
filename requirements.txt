@@ -1,1 +1,2 @@
 pipenv==8.2.3
+coverage==4.3.4
