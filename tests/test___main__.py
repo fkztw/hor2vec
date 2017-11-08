@@ -6,6 +6,7 @@ from hor2vec import __main__    #this import trashed the test coverage
 import pytest
 import argparse
 import sys
+import io
 
 class TestMain(object):
     
@@ -47,6 +48,78 @@ class TestMain(object):
             args = __main__.get_args()
             cases_saved[name] = args
         return cases_saved
+    
+    @pytest.fixture
+    def fixture_outputs(self):
+        cases_outputs = {
+            'case0':    'Iwtbyf Cw?\n'  \
+                        ' aoeor ae\n'   \
+                        ' n  ui n\n'    \
+                        ' t  re\n'      \
+                        '     n\n'      \
+                        '     d\n'      \
+                        '     .\n',
+            
+            'case1':    'Iwtbyf Cw?\n'  \
+                        ' aoeor ae\n'   \
+                        ' n  ui n\n'    \
+                        ' t  re\n'      \
+                        '     n\n'      \
+                        '     d\n'      \
+                        '     .\n',
+            
+            'case2':    'I w t b y f   C w ?\n'   \
+                        '  a o e o r   a e\n'     \
+                        '  n     u i   n\n'       \
+                        '  t     r e\n'           \
+                        '          n\n'           \
+                        '          d\n'           \
+                        '          .\n',
+            
+            'case3':    '? w C   f y b t w I\n'   \
+                        '  e a   r o e o a\n'     \
+                        '    n   i u     n\n'     \
+                        '        e r     t\n'     \
+                        '        n\n'             \
+                        '        d\n'             \
+                        '        .\n',
+            
+            'case4':    '        .\n'             \
+                        '        d\n'             \
+                        '        n\n'             \
+                        '        e r     t\n'     \
+                        '    n   i u     n\n'     \
+                        '  e a   r o e o a\n'     \
+                        '? w C   f y b t w I\n',
+            
+            'case5':    '            ?\n' \
+                        '          e w\n' \
+                        '        n a C\n' \
+                        '\n'              \
+                        '. d n e i r f\n' \
+                        '      r u o y\n' \
+                        '          e b\n' \
+                        '          o t\n' \
+                        '      t n a w\n' \
+                        '            I\n',
+
+            'case6':    'SAcltt1dr:f¼½ac£¥.\n'  \
+                        'eShahh2ee r　　nu\n'     \
+                        'eCarae7cp a　　dr\n'     \
+                        ' Irgn  ir c　　 r\n'     \
+                        ' Ise   me t　　 e\n'     \
+                        '   r   as i　　 n\n'     \
+                        '       le o　　 c\n'     \
+                        '        n n　　 i\n'     \
+                        '        t s　　 e\n'     \
+                        '        a  　　 s\n'     \
+                        '        n\n'           \
+                        '        t\n'           \
+                        '        i\n'           \
+                        '        o\n'           \
+                        '        n\n',
+        }
+        return cases_outputs
     
     def test___main___global_variables(self):
         assert __main__.HALFWIDTH_SPACE == ' '
@@ -199,4 +272,19 @@ class TestMain(object):
                     assert not any(space in filled for space in spaces)
         
         
+    
+    def test___main__hor2vec(self,fixture_args,fixture_outputs):
+        for case_name, case_args in fixture_args.items():
+            saved_stdout = sys.stdout
+            try:
+                out = io.StringIO()
+                sys.stdout = out
+                
+                __main__.hor2vec(case_args)
+                
+                output = out.getvalue()
+                assert output == fixture_outputs[case_name]
+
+            finally:
+                sys.stdout = saved_stdout
     
