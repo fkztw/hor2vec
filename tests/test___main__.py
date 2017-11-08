@@ -163,3 +163,10 @@ class TestMain(object):
         assert args.word_direction == 't2b'
         assert args.no_rotate == False
         
+    def test___main___is_ascii(self):
+        for n in range(0,128):
+            assert __main__.is_ascii(chr(n)) == True
+        
+        for n in range(128,300):
+            assert __main__.is_ascii(chr(n)) == False
+    
