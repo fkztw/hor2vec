@@ -170,3 +170,33 @@ class TestMain(object):
         for n in range(128,300):
             assert __main__.is_ascii(chr(n)) == False
     
+    def test___main__fill_white_spaces(self,fixture_args):
+        
+        def prepare_params(args):
+            content = ''.join(args.input.readlines())
+            input_lines = content.rstrip().split('\n')
+            input_lines_array = tuple(map(tuple, input_lines))
+            len_of_longest_line = max(map(len, input_lines_array))
+            return (input_lines_array,len_of_longest_line,args)
+        
+        for case_name, case_args in fixture_args.items():
+            (lines, max_len, rargs) = prepare_params(case_args)
+            filled_lines = []
+            for line in lines:
+                filled = __main__.fill_white_spaces(line, max_len, rargs)
+                filled_lines.append(filled)
+                assert isinstance(filled, tuple)
+                assert not isinstance(filled, list)
+                
+                assert len(line) <= max_len
+                assert len(line) <= len(filled)
+                assert all(word in filled for word in line)
+                
+                spaces=[__main__.HALFWIDTH_SPACE, __main__.FULLWIDTH_SPACE]
+                if len(line) < max_len:
+                    assert any(space in filled for space in spaces)
+                else:
+                    assert not any(space in filled for space in spaces)
+        
+        
+    
