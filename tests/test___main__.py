@@ -7,6 +7,8 @@ import pytest
 import argparse
 import sys
 import io
+import os
+from collections import deque
 
 class TestMain(object):
     
@@ -288,3 +290,37 @@ class TestMain(object):
             finally:
                 sys.stdout = saved_stdout
     
+    def test___main__if_name_main(self,monkeypatch):
+        #This block of source-code...
+        block_if_name_main =    'if __name__ == "__main__":\n'\
+                                '    args = get_args()\n'     \
+                                '    hor2vec(args)\n'         \
+        
+        #...is not covered by the bellow test.
+        
+        #Despite this, the bellow test works.
+        #But this test is useless, because...
+        #...it can not cover the above block of source-code.
+        '''
+        def faked_get_args():
+            return 'faked get_args mocked successfully!'
+        def faked_hor2vec():
+            return 'faked hor2vec mocked successfully!'
+        
+        monkeypatch.setattr(__main__, 'get_args', faked_get_args)
+        monkeypatch.setattr(__main__, 'hor2vec', faked_hor2vec)
+        
+        fga = __main__.get_args()
+        fhv = __main__.hor2vec()
+        
+        assert fga == 'faked get_args mocked successfully!'
+        assert fhv == 'faked hor2vec mocked successfully!'
+        '''
+        
+        #So, bellow is written a...
+        #... simplistic, ugly and hardcoded test
+        module_abspath = os.path.abspath(__main__.__file__)
+        with open(module_abspath) as f:
+            last_3_lines = deque(f, 3)
+            assert ''.join(last_3_lines) == block_if_name_main
+
