@@ -1,6 +1,6 @@
 # import hor2vec
 import importlib
-import pytest
+import pytest # noqa: F401
 
 
 class TestInit(object):

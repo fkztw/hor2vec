@@ -1,6 +1,6 @@
 from hor2vec import __version__
 
-import pytest
+import pytest # noqa: F401
 
 import re
 
