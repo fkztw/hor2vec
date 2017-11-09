@@ -273,8 +273,6 @@ class TestMain(object):
                     assert any(space in filled for space in spaces)
                 else:
                     assert not any(space in filled for space in spaces)
-        
-        
     
     def test___main__hor2vec(self, fixture_args, fixture_outputs):
         for case_name, case_args in fixture_args.items():
