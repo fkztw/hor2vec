@@ -1,6 +1,6 @@
 from hor2vec import __main__    # this import trashed the test coverage
 
-#import hor2vec
+# import hor2vec
 
 
 import pytest
@@ -291,16 +291,16 @@ class TestMain(object):
                 sys.stdout = saved_stdout
     
     def test___main__if_name_main(self, monkeypatch):
-        #This block of source-code...
+        # This block of source-code...
         block_if_name_main = 'if __name__ == "__main__":\n'\
                              '    args = get_args()\n'     \
                              '    hor2vec(args)\n'         \
         
-        #...is not covered by the bellow test.
+        # ...is not covered by the bellow test.
         
-        #Despite this, the bellow test works.
-        #But this test is useless, because...
-        #...it can not cover the above block of source-code.
+        # Despite this, the bellow test works.
+        # But this test is useless, because...
+        # ...it can not cover the above block of source-code.
         '''
         def faked_get_args():
             return 'faked get_args mocked successfully!'
@@ -317,8 +317,8 @@ class TestMain(object):
         assert fhv == 'faked hor2vec mocked successfully!'
         '''
         
-        #So, bellow is written a...
-        #... simplistic, ugly and hardcoded test
+        # So, bellow is written a...
+        # ... simplistic, ugly and hardcoded test
         module_abspath = os.path.abspath(__main__.__file__)
         with open(module_abspath) as f:
             last_3_lines = deque(f, 3)

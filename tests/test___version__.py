@@ -10,7 +10,7 @@ class TestVersion(object):
         
         module_version = __version__.__version__
         
-        #regex from https://www.python.org/dev/peps/pep-0440/
+        # regex from https://www.python.org/dev/peps/pep-0440/
         pep440_pattern = r"""
             ^                       #start of string
             ([1-9]\d*!)?            #group 1
