@@ -8,9 +8,9 @@ import re
 class TestVersion(object):
 
     def test___version__(self):
-        
+
         module_version = __version__.__version__
-        
+
         # regex from https://www.python.org/dev/peps/pep-0440/
         pep440_pattern = r"""
             ^                       #start of string
@@ -55,7 +55,4 @@ class TestVersion(object):
         assert type(module_version) is str
         assert re.match(pep440_regex, module_version) is not None
         assert re.match(pep440_regex, module_version).group is not None
-        
-        
-        
-        
+
