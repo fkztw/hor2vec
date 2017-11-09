@@ -21,20 +21,20 @@ class TestMain(object):
             'case1': [
                         'input', 'tests/data/english_test_data.txt'],
             'case2': [
-                        'input', 'tests/data/english_test_data.txt', 
+                        'input', 'tests/data/english_test_data.txt',
                         '-s', ' '],
             'case3': [
-                        'input', 'tests/data/english_test_data.txt', 
-                        '-s', ' ', 
+                        'input', 'tests/data/english_test_data.txt',
+                        '-s', ' ',
                         '-ld', 'r2l'],
             'case4': [
-                        'input', 'tests/data/english_test_data.txt', 
-                        '-s', ' ', 
+                        'input', 'tests/data/english_test_data.txt',
+                        '-s', ' ',
                         '-ld', 'r2l',
                         '-wd', 'b2t'],
             'case5': [
-                        'input', 'tests/data/english_test_data.txt', 
-                        '-s', ' ', 
+                        'input', 'tests/data/english_test_data.txt',
+                        '-s', ' ',
                         '-ld', 'r2l',
                         '-wd', 'b2t',
                         '-nr'],
