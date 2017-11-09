@@ -4,6 +4,7 @@ import pytest
 
 import re
 
+
 class TestVersion(object):
 
     def test___version__(self):

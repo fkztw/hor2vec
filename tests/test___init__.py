@@ -2,6 +2,7 @@
 import importlib
 import pytest
 
+
 class TestInit(object):
 
     def test___init__(self):
