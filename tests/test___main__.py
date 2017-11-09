@@ -42,7 +42,7 @@ class TestMain(object):
                         'input', 'tests/data/ascii_test_data.txt']
         }
         
-        cases_saved ={}
+        cases_saved = {}
         for name, case in cases_to_save.items():
             if case[0] != 'input':
                 case.insert(0, 'input')
@@ -267,7 +267,7 @@ class TestMain(object):
                 assert len(line) <= len(filled)
                 assert all(word in filled for word in line)
                 
-                spaces=[__main__.HALFWIDTH_SPACE, __main__.FULLWIDTH_SPACE]
+                spaces = [__main__.HALFWIDTH_SPACE, __main__.FULLWIDTH_SPACE]
                 if len(line) < max_len:
                     assert any(space in filled for space in spaces)
                 else:
