@@ -49,7 +49,7 @@ class TestVersion(object):
                                     #   ? Match zero-1 times as many
             $                       #end of string
         """
-        pep440_regex = re.compile(pep440_pattern,re.VERBOSE)
+        pep440_regex = re.compile(pep440_pattern, re.VERBOSE)
         assert module_version is not None
         assert type(module_version) is str
         assert re.match(pep440_regex, module_version) is not None

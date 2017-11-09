@@ -18,7 +18,7 @@ class TestMain(object):
             'case0': [
                         'tests/data/english_test_data.txt'],
             'case1': [
-                        'input','tests/data/english_test_data.txt'],
+                        'input', 'tests/data/english_test_data.txt'],
             'case2': [
                         'input', 'tests/data/english_test_data.txt', 
                         '-s', ' '],
@@ -132,7 +132,7 @@ class TestMain(object):
         assert hasattr(__main__, 'fill_white_spaces')
         assert hasattr(__main__, 'hor2vec')
 
-    def test___main___get_args(self,fixture_args):
+    def test___main___get_args(self, fixture_args):
         args = fixture_args['case0']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
@@ -239,20 +239,20 @@ class TestMain(object):
         assert args.no_rotate == False
         
     def test___main___is_ascii(self):
-        for n in range(0,128):
+        for n in range(0, 128):
             assert __main__.is_ascii(chr(n)) == True
         
-        for n in range(128,300):
+        for n in range(128, 300):
             assert __main__.is_ascii(chr(n)) == False
     
-    def test___main__fill_white_spaces(self,fixture_args):
+    def test___main__fill_white_spaces(self, fixture_args):
         
         def prepare_params(args):
             content = ''.join(args.input.readlines())
             input_lines = content.rstrip().split('\n')
             input_lines_array = tuple(map(tuple, input_lines))
             len_of_longest_line = max(map(len, input_lines_array))
-            return (input_lines_array,len_of_longest_line,args)
+            return (input_lines_array, len_of_longest_line, args)
         
         for case_name, case_args in fixture_args.items():
             (lines, max_len, rargs) = prepare_params(case_args)
@@ -275,7 +275,7 @@ class TestMain(object):
         
         
     
-    def test___main__hor2vec(self,fixture_args,fixture_outputs):
+    def test___main__hor2vec(self, fixture_args, fixture_outputs):
         for case_name, case_args in fixture_args.items():
             saved_stdout = sys.stdout
             try:
@@ -290,7 +290,7 @@ class TestMain(object):
             finally:
                 sys.stdout = saved_stdout
     
-    def test___main__if_name_main(self,monkeypatch):
+    def test___main__if_name_main(self, monkeypatch):
         #This block of source-code...
         block_if_name_main = 'if __name__ == "__main__":\n'\
                              '    args = get_args()\n'     \
