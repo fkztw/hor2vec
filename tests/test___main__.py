@@ -322,4 +322,3 @@ class TestMain(object):
         with open(module_abspath) as f:
             last_3_lines = deque(f, 3)
             assert ''.join(last_3_lines) == block_if_name_main
-
