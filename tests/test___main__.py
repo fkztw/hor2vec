@@ -292,9 +292,9 @@ class TestMain(object):
     
     def test___main__if_name_main(self,monkeypatch):
         #This block of source-code...
-        block_if_name_main =    'if __name__ == "__main__":\n'\
-                                '    args = get_args()\n'     \
-                                '    hor2vec(args)\n'         \
+        block_if_name_main = 'if __name__ == "__main__":\n'\
+                             '    args = get_args()\n'     \
+                             '    hor2vec(args)\n'         \
         
         #...is not covered by the bellow test.
         
