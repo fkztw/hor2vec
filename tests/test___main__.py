@@ -147,7 +147,7 @@ class TestMain(object):
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
-        assert args.no_rotate == False
+        assert args.no_rotate is False
         
         args = fixture_args['case1']
         assert args is not None
@@ -162,7 +162,7 @@ class TestMain(object):
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
-        assert args.no_rotate == False
+        assert args.no_rotate is False
 
         args = fixture_args['case2']
         assert args is not None
@@ -177,7 +177,7 @@ class TestMain(object):
         assert args.sep == ' '
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
-        assert args.no_rotate == False
+        assert args.no_rotate is False
         
         args = fixture_args['case3']
         assert args is not None
@@ -192,7 +192,7 @@ class TestMain(object):
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 't2b'
-        assert args.no_rotate == False
+        assert args.no_rotate is False
         
         args = fixture_args['case4']
         assert args is not None
@@ -207,7 +207,7 @@ class TestMain(object):
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 'b2t'
-        assert args.no_rotate == False
+        assert args.no_rotate is False
         
         args = fixture_args['case5']
         assert args is not None
@@ -222,7 +222,7 @@ class TestMain(object):
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 'b2t'
-        assert args.no_rotate == True
+        assert args.no_rotate is True
         
         args = fixture_args['case6']
         assert args is not None
@@ -237,14 +237,14 @@ class TestMain(object):
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
-        assert args.no_rotate == False
+        assert args.no_rotate is False
         
     def test___main___is_ascii(self):
         for n in range(0, 128):
-            assert __main__.is_ascii(chr(n)) == True
+            assert __main__.is_ascii(chr(n)) is True
         
         for n in range(128, 300):
-            assert __main__.is_ascii(chr(n)) == False
+            assert __main__.is_ascii(chr(n)) is False
     
     def test___main__fill_white_spaces(self, fixture_args):
         
