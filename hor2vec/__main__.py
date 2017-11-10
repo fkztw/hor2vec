@@ -23,11 +23,11 @@ def get_args():
     )
 
     parser.add_argument(
-        '-s', '--sep', '--seprator',
+        '-s', '--sep', '--separator',
         type=str,
         default='',
         help=(
-            "The seperator between lines. "
+            "The separator between lines. "
             "Default is '', you can use ' ', '|' or any other strings."
         )
     )
@@ -60,7 +60,7 @@ def get_args():
         '-nr', '--no-rotate',
         action='store_true',
         default=False,
-        help="If this optioin has been given, hor2vec won't rotate the input."
+        help="If this option has been given, hor2vec won't rotate the input."
     )
 
     return parser.parse_args()

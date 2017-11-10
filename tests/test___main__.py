@@ -316,8 +316,8 @@ class TestMain(object):
         assert fhv == 'faked hor2vec mocked successfully!'
         '''
 
-        # So, bellow is written a...
-        # ... simplistic, ugly and hardcoded test
+        # So, below is written a...
+        # ... simplistic, ugly and, hard coded test
         module_abspath = os.path.abspath(__main__.__file__)
         with open(module_abspath) as f:
             last_3_lines = deque(f, 3)

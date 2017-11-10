@@ -39,13 +39,13 @@ class TestVersion(object):
             (\.post(0|[1-9]\d*))?   #group 5
                                     #   () group
                                     #   \. Match a . dot
-                                    #   post string post
+                                    #   post the string 'post'
                                     #   (0|[1-9]\d*) Same as group 2
                                     #   ? Match zero-1 times as many
             (\.dev(0|[1-9]\d*))?    #group 6
                                     #   () group
                                     #   \. Match a . dot
-                                    #   dev string dev
+                                    #   dev the string 'dev'
                                     #   (0|[1-9]\d*) Same as group 2
                                     #   ? Match zero-1 times as many
             $                       #end of string
