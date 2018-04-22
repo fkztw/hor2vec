@@ -26,14 +26,14 @@ Change your horizontal pure text to vertical with some options.
 usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [input]  
   
 positional arguments:  
-  input                 The file contains horizontal pure text to be changed  
-                        to vertical. If not been given in the command, will  
-                        use the stdin as input.  
+  input                 The file has horizontal pure text to be changed to  
+                        vertical. If not been given in the command, will use  
+                        the stdin as input.  
   
 optional arguments:  
   -h, --help            show this help message and exit  
-  -s SEP, --sep SEP, --seprator SEP  
-                        The seperator between lines. Default is '', you can  
+  -s SEP, --sep SEP, --separator SEP  
+                        The separator between lines. Default is '', you can  
                         use ' ', '|' or any other strings.  
   -ld {l2r,r2l}, --line-direction {l2r,r2l}  
                         The reading direction of each line. Default is 'l2r'  
@@ -42,7 +42,7 @@ optional arguments:
                         The reading direction of each word/character. Default  
                         is 't2b' (top to bottom), you can choose 'b2t' (bottom  
                         to top).  
-  -nr, --no-rotate      If this optioin has been given, hor2vec won't rotate  
+  -nr, --no-rotate      If this option has been given, hor2vec won't rotate  
                         the input.  
 ```  
   
