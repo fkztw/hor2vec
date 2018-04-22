@@ -17,17 +17,17 @@ def get_args():
         nargs='?',
         default=sys.stdin,
         help=(
-            "The file contains horizontal pure text to be changed to vertical. "
+            "The file has horizontal pure text to be changed to vertical. "
             "If not been given in the command, will use the stdin as input."
         )
     )
 
     parser.add_argument(
-        '-s', '--sep', '--seprator',
+        '-s', '--sep', '--separator',
         type=str,
         default='',
         help=(
-            "The seperator between lines. "
+            "The separator between lines. "
             "Default is '', you can use ' ', '|' or any other strings."
         )
     )
@@ -60,7 +60,7 @@ def get_args():
         '-nr', '--no-rotate',
         action='store_true',
         default=False,
-        help="If this optioin has been given, hor2vec won't rotate the input."
+        help="If this option has been given, hor2vec won't rotate the input."
     )
 
     return parser.parse_args()
@@ -106,8 +106,10 @@ def hor2vec(args):
         output_lines_array = tuple(zip(*filled_input_lines_array))
 
     output_lines = '\n'.join(
-        (args.sep).join(output_line_array)[::(1 - 2*(args.line_direction == "r2l"))].rstrip()
-        for output_line_array in output_lines_array[::(1 - 2*(args.word_direction == "b2t"))]
+        (args.sep).join(output_line_array)[
+            ::(1 - 2*(args.line_direction == "r2l"))].rstrip()
+        for output_line_array in output_lines_array[
+            ::(1 - 2*(args.word_direction == "b2t"))]
     )
     print(output_lines)
 
