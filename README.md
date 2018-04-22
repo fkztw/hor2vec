@@ -236,3 +236,19 @@ $ python3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt
    tnaw  
       I  
 ```  
+  
+---  
+  
+## Development  
+  
+### Install dev dependencies  
+  
+`pipenv install --dev`  
+  
+or  
+  
+`pip install -r requirements.txt`  
+  
+### Testings  
+  
+`python -m pytest tests/`  
