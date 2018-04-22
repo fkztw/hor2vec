@@ -23,7 +23,8 @@ Change your horizontal pure text to vertical with some options.
 ## Usage  
   
 ```  
-usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [input]  
+usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [-fw]  
+               [input]  
   
 positional arguments:  
   input                 The file has horizontal pure text to be changed to  
@@ -44,6 +45,8 @@ optional arguments:
                         to top).  
   -nr, --no-rotate      If this option has been given, hor2vec won't rotate  
                         the input.  
+  -fw, --full-width     If this option has been given, hor2vec will use  
+                        fullwidth characters instead of halfwidth characters.  
 ```  
   
 ---  
