@@ -9,7 +9,7 @@ class TestVersion(object):
 
     def test___version__(self):
 
-        module_version = __version__.__version__
+        module_version = __version__
 
         # regex from https://www.python.org/dev/peps/pep-0440/
         pep440_pattern = r"""
