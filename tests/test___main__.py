@@ -137,7 +137,7 @@ class TestMain(object):
         args = fixture_args['case0']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
@@ -152,7 +152,7 @@ class TestMain(object):
         args = fixture_args['case1']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
@@ -167,7 +167,7 @@ class TestMain(object):
         args = fixture_args['case2']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
@@ -182,7 +182,7 @@ class TestMain(object):
         args = fixture_args['case3']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
@@ -197,7 +197,7 @@ class TestMain(object):
         args = fixture_args['case4']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
@@ -212,7 +212,7 @@ class TestMain(object):
         args = fixture_args['case5']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
@@ -227,7 +227,7 @@ class TestMain(object):
         args = fixture_args['case6']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
