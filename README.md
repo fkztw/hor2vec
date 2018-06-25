@@ -251,4 +251,4 @@ or
   
 ### Testings  
   
-`python -m pytest tests/`  
+` python -m pytest --cov hor2vec/`  
