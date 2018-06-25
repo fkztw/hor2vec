@@ -95,11 +95,20 @@ def fill_white_spaces(line_tuple, max_length, args):
     return tuple(line_list)
 
 
+def turn_to_full_width_char(char):
+    full_width_char = chr(0x0FEE0 + ord(char))
+    return full_width_char
+
+
 def turn_to_full_width_chars(input_lines):
     for i, line in enumerate(input_lines):
         for j, char in enumerate(line):
             if is_ascii(char):
-                input_lines[i] = input_lines[i][:j] + chr(0x0FEE0 + ord(char)) + input_lines[i][j+1:]
+                input_lines[i] = (
+                    input_lines[i][:j] +
+                    turn_to_full_width_char(char) +
+                    input_lines[i][j+1:]
+                )
 
 
 def hor2vec(args):
