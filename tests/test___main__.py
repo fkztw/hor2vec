@@ -38,9 +38,15 @@ class TestMain(object):
                         '-ld', 'r2l',
                         '-wd', 'b2t',
                         '-nr'],
-
             'case6': [
-                        'input', 'tests/data/ascii_test_data.txt']
+                        'input', 'tests/data/english_test_data.txt',
+                        '-s', ' ',
+                        '-ld', 'r2l',
+                        '-wd', 'b2t',
+                        '-nr',
+                        '-fw'],
+            'case7': [
+                        'input', 'tests/data/ascii_test_data.txt'],
         }
 
         cases_saved = {}
@@ -106,7 +112,18 @@ class TestMain(object):
                         '      t n a w\n'
                         '            I\n',
 
-            'case6':    'SAcltt1dr:f¼½ac£¥.\n'
+            'case6':    '　 　 　 　 　 　 ？\n'
+                        '　 　 　 　 　 ｅ ｗ\n'
+                        '　 　 　 　 ｎ ａ Ｃ\n'
+                        '\n'
+                        '． ｄ ｎ ｅ ｉ ｒ ｆ\n'
+                        '　 　 　 ｒ ｕ ｏ ｙ\n'
+                        '　 　 　 　 　 ｅ ｂ\n'
+                        '　 　 　 　 　 ｏ ｔ\n'
+                        '　 　 　 ｔ ｎ ａ ｗ\n'
+                        '　 　 　 　 　 　 Ｉ\n',
+
+            'case7':    'SAcltt1dr:f¼½ac£¥.\n'
                         'eShahh2ee r　　nu\n'
                         'eCarae7cp a　　dr\n'
                         ' Irgn  ir c　　 r\n'
@@ -143,11 +160,13 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case1']
         assert args is not None
@@ -158,11 +177,13 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case2']
         assert args is not None
@@ -173,11 +194,13 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case3']
         assert args is not None
@@ -188,11 +211,13 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case4']
         assert args is not None
@@ -203,11 +228,13 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 'b2t'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case5']
         assert args is not None
@@ -218,11 +245,13 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 'b2t'
         assert args.no_rotate is True
+        assert args.full_width is False
 
         args = fixture_args['case6']
         assert args is not None
@@ -233,11 +262,30 @@ class TestMain(object):
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
+        assert args.input.name == 'tests/data/english_test_data.txt'
+        assert args.sep == ' '
+        assert args.line_direction == 'r2l'
+        assert args.word_direction == 'b2t'
+        assert args.no_rotate is True
+        assert args.full_width is True
+
+        args = fixture_args['case7']
+        assert args is not None
+        assert isinstance(args, argparse.Namespace)
+        assert len(vars(args)) == 6
+        assert 'input' in vars(args)
+        assert 'sep' in vars(args)
+        assert 'line_direction' in vars(args)
+        assert 'word_direction' in vars(args)
+        assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/ascii_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
     def test___main___is_ascii(self):
         for n in range(0, 128):
