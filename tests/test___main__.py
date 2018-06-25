@@ -148,6 +148,8 @@ class TestMain(object):
         assert hasattr(__main__, 'get_args')
         assert hasattr(__main__, 'is_ascii')
         assert hasattr(__main__, 'fill_white_spaces')
+        assert hasattr(__main__, 'turn_to_full_width_char')
+        assert hasattr(__main__, 'turn_to_full_width_chars')
         assert hasattr(__main__, 'hor2vec')
 
     def test___main___get_args(self, fixture_args):
@@ -321,6 +323,10 @@ class TestMain(object):
                     assert any(space in filled for space in spaces)
                 else:
                     assert not any(space in filled for space in spaces)
+
+    # def test__main__turn_to_full_width_char(self):
+
+    # def test__main__turn_to_full_width_chars(self):
 
     def test___main__hor2vec(self, fixture_args, fixture_outputs):
         for case_name, case_args in fixture_args.items():
