@@ -251,4 +251,6 @@ or
   
 ### Testings  
   
-` python -m pytest --cov hor2vec/`  
+`python -m pytest --cov hor2vec/  --cov-report html --cov-report term`  
+or just  
+`make test`  
