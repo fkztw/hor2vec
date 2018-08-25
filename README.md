@@ -1,5 +1,7 @@
 ## hor2vec  
   
+[![Coverage Status](https://coveralls.io/repos/github/M157q/5g1/badge.svg?branch=master)](https://coveralls.io/github/M157q/5g1?branch=master)  
+  
 ```  
  _               ____  
 | |__   ___  _ _|___ \__   _____  ___  
@@ -254,4 +256,6 @@ or
   
 ### Testings  
   
-` python -m pytest --cov hor2vec/`  
+`python -m pytest --cov hor2vec/  --cov-report html --cov-report term`  
+or just  
+`make test`  
