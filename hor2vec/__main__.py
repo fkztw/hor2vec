@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import argparse
+import string
 import sys
 
 
@@ -109,6 +110,7 @@ def turn_to_full_width_chars(input_lines):
                     turn_to_full_width_char(char) +
                     input_lines[i][j+1:]
                 )
+    return input_lines
 
 
 def hor2vec(args):

@@ -6,6 +6,7 @@ from hor2vec import __main__    # this import trashed the test coverage
 import pytest
 import argparse
 import sys
+import string
 import io
 import os
 from collections import deque
@@ -324,9 +325,10 @@ class TestMain(object):
                 else:
                     assert not any(space in filled for space in spaces)
 
-    # def test__main__turn_to_full_width_char(self):
-
-    # def test__main__turn_to_full_width_chars(self):
+    def test__main__turn_to_full_width_chars(self):
+        half_width_ascii_chars = [string.ascii_letters + string.punctuation]
+        full_width_ascii_chars = ['ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀｛｜｝～']
+        assert full_width_ascii_chars == __main__.turn_to_full_width_chars(half_width_ascii_chars)
 
     def test___main__hor2vec(self, fixture_args, fixture_outputs):
         for case_name, case_args in fixture_args.items():
