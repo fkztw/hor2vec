@@ -182,6 +182,17 @@ Iwtbyf Cw?
 ```
 
 ```
+$ python3 hor2vec -fw tests/data/english_test_data.txt
+Ｉｗｔｂｙｆ Ｃｗ？
+　ａｏｅｏｒ ａｅ
+　ｎ　　ｕｉ ｎ
+　ｔ　　ｒｅ
+　　　　　ｎ
+　　　　　ｄ
+　　　　　．
+```
+
+```
 $ python3 hor2vec -s ' ' tests/data/english_test_data.txt
 I w t b y f   C w ?
   a o e o r   a e
