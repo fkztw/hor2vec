@@ -348,8 +348,7 @@ class TestMain(object):
     def test___main__if_name_main(self, monkeypatch):
         # This block of source-code...
         block_if_name_main = 'if __name__ == "__main__":\n'\
-                             '    args = get_args()\n'     \
-                             '    hor2vec(args)\n'         \
+                             '    main()\n'                \
 
         # ...is not covered by the bellow test.
 
@@ -376,5 +375,5 @@ class TestMain(object):
         # ... simplistic, ugly and, hard coded test
         module_abspath = os.path.abspath(__main__.__file__)
         with open(module_abspath) as f:
-            last_3_lines = deque(f, 3)
-            assert ''.join(last_3_lines) == block_if_name_main
+            last_2_lines = deque(f, 2)
+            assert ''.join(last_2_lines) == block_if_name_main
