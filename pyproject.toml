@@ -9,3 +9,5 @@ author-email = "m157q.tw@gmail.com"
 home-page = "https://github.com/M157q/hor2vec"
 classifiers = ["License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"]
 
+[tool.flit.scripts]
+hor2vec = "hor2vec:main"

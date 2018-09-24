@@ -142,6 +142,10 @@ def hor2vec(args):
     print(output_lines)
 
 
-if __name__ == "__main__":
+def main():
     args = get_args()
     hor2vec(args)
+
+
+if __name__ == "__main__":
+    main()
