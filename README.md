@@ -16,9 +16,19 @@ Change your horizontal pure text to vertical with some options.
 
 ## Installation
 
+- `hor2vec` doesn't use any third party Python package.
+- You can just `git clone` from GitHub, `cd` into cloned `hor2vec` dir, and use `python3 hor2vec ...`.
+- You can also install from PyPI with `pip install hor2vec`, after that, you can just use `hor2vec ...`.
+
+
 ### GitHub
 
 `$ git clone https://github.com/M157q/hor2vec`
+
+
+### PyPI
+
+`$ pip install hor2vec`
 
 ---
 
