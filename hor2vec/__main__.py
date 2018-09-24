@@ -64,6 +64,13 @@ def get_args():
         help="If this option has been given, hor2vec won't rotate the input."
     )
 
+    parser.add_argument(
+        '-fw', '--full-width',
+        action='store_true',
+        default=False,
+        help="If this option has been given, hor2vec will use fullwidth characters instead of halfwidth characters."
+    )
+
     return parser.parse_args()
 
 
@@ -89,10 +96,30 @@ def fill_white_spaces(line_tuple, max_length, args):
     return tuple(line_list)
 
 
+def turn_to_full_width_char(char):
+    full_width_char = chr(0x0FEE0 + ord(char))
+    return full_width_char
+
+
+def turn_to_full_width_chars(input_lines):
+    for i, line in enumerate(input_lines):
+        for j, char in enumerate(line):
+            if is_ascii(char):
+                input_lines[i] = (
+                    input_lines[i][:j] +
+                    turn_to_full_width_char(char) +
+                    input_lines[i][j+1:]
+                )
+    return input_lines
+
+
 def hor2vec(args):
     content = ''.join(args.input.readlines())
 
     input_lines = content.rstrip().split('\n')
+
+    if args.full_width:
+        turn_to_full_width_chars(input_lines)
 
     input_lines_array = tuple(map(tuple, input_lines))
     len_of_longest_line = max(map(len, input_lines_array))

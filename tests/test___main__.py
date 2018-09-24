@@ -6,6 +6,7 @@ from hor2vec import __main__    # this import trashed the test coverage
 import pytest
 import argparse
 import sys
+import string
 import io
 import os
 from collections import deque
@@ -38,9 +39,15 @@ class TestMain(object):
                         '-ld', 'r2l',
                         '-wd', 'b2t',
                         '-nr'],
-
             'case6': [
-                        'input', 'tests/data/ascii_test_data.txt']
+                        'input', 'tests/data/english_test_data.txt',
+                        '-s', ' ',
+                        '-ld', 'r2l',
+                        '-wd', 'b2t',
+                        '-nr',
+                        '-fw'],
+            'case7': [
+                        'input', 'tests/data/ascii_test_data.txt'],
         }
 
         cases_saved = {}
@@ -106,7 +113,18 @@ class TestMain(object):
                         '      t n a w\n'
                         '            I\n',
 
-            'case6':    'SAcltt1dr:f¼½ac£¥.\n'
+            'case6':    '　 　 　 　 　 　 ？\n'
+                        '　 　 　 　 　 ｅ ｗ\n'
+                        '　 　 　 　 ｎ ａ Ｃ\n'
+                        '\n'
+                        '． ｄ ｎ ｅ ｉ ｒ ｆ\n'
+                        '　 　 　 ｒ ｕ ｏ ｙ\n'
+                        '　 　 　 　 　 ｅ ｂ\n'
+                        '　 　 　 　 　 ｏ ｔ\n'
+                        '　 　 　 ｔ ｎ ａ ｗ\n'
+                        '　 　 　 　 　 　 Ｉ\n',
+
+            'case7':    'SAcltt1dr:f¼½ac£¥.\n'
                         'eShahh2ee r　　nu\n'
                         'eCarae7cp a　　dr\n'
                         ' Irgn  ir c　　 r\n'
@@ -131,113 +149,146 @@ class TestMain(object):
         assert hasattr(__main__, 'get_args')
         assert hasattr(__main__, 'is_ascii')
         assert hasattr(__main__, 'fill_white_spaces')
+        assert hasattr(__main__, 'turn_to_full_width_char')
+        assert hasattr(__main__, 'turn_to_full_width_chars')
         assert hasattr(__main__, 'hor2vec')
 
     def test___main___get_args(self, fixture_args):
         args = fixture_args['case0']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case1']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case2']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case3']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case4']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 'b2t'
         assert args.no_rotate is False
+        assert args.full_width is False
 
         args = fixture_args['case5']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/english_test_data.txt'
         assert args.sep == ' '
         assert args.line_direction == 'r2l'
         assert args.word_direction == 'b2t'
         assert args.no_rotate is True
+        assert args.full_width is False
 
         args = fixture_args['case6']
         assert args is not None
         assert isinstance(args, argparse.Namespace)
-        assert len(vars(args)) == 5
+        assert len(vars(args)) == 6
         assert 'input' in vars(args)
         assert 'sep' in vars(args)
         assert 'line_direction' in vars(args)
         assert 'word_direction' in vars(args)
         assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
+        assert args.input.name == 'tests/data/english_test_data.txt'
+        assert args.sep == ' '
+        assert args.line_direction == 'r2l'
+        assert args.word_direction == 'b2t'
+        assert args.no_rotate is True
+        assert args.full_width is True
+
+        args = fixture_args['case7']
+        assert args is not None
+        assert isinstance(args, argparse.Namespace)
+        assert len(vars(args)) == 6
+        assert 'input' in vars(args)
+        assert 'sep' in vars(args)
+        assert 'line_direction' in vars(args)
+        assert 'word_direction' in vars(args)
+        assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/ascii_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'
         assert args.no_rotate is False
+        assert args.full_width is False
 
     def test___main___is_ascii(self):
         for n in range(0, 128):
@@ -274,6 +325,11 @@ class TestMain(object):
                 else:
                     assert not any(space in filled for space in spaces)
 
+    def test__main__turn_to_full_width_chars(self):
+        half_width_ascii_chars = [string.ascii_letters + string.punctuation]
+        full_width_ascii_chars = ['ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ！＂＃＄％＆＇（）＊＋，－．／：；＜＝＞？＠［＼］＾＿｀｛｜｝～']
+        assert full_width_ascii_chars == __main__.turn_to_full_width_chars(half_width_ascii_chars)
+
     def test___main__hor2vec(self, fixture_args, fixture_outputs):
         for case_name, case_args in fixture_args.items():
             saved_stdout = sys.stdout
@@ -292,8 +348,7 @@ class TestMain(object):
     def test___main__if_name_main(self, monkeypatch):
         # This block of source-code...
         block_if_name_main = 'if __name__ == "__main__":\n'\
-                             '    args = get_args()\n'     \
-                             '    hor2vec(args)\n'         \
+                             '    main()\n'                \
 
         # ...is not covered by the bellow test.
 
@@ -320,5 +375,5 @@ class TestMain(object):
         # ... simplistic, ugly and, hard coded test
         module_abspath = os.path.abspath(__main__.__file__)
         with open(module_abspath) as f:
-            last_3_lines = deque(f, 3)
-            assert ''.join(last_3_lines) == block_if_name_main
+            last_2_lines = deque(f, 2)
+            assert ''.join(last_2_lines) == block_if_name_main
