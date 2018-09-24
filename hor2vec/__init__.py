@@ -7,5 +7,5 @@
 
 from hor2vec.__main__ import main
 
-__version__ = '2.0.0'
+__version__ = '2.1.0'
 __doc__ = 'Change your horizontal pure text to vertical with some options.'
