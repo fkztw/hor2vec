@@ -5,7 +5,6 @@
 # |_| |_|\___/|_| |_____| \_/ \___|\___|
 #
 
-from hor2vec.__main__ import main
 
 __version__ = '2.1.1'
 __doc__ = 'Change your horizontal pure text to vertical with some options.'
