@@ -6,6 +6,9 @@
 __pycache__/
 dist/
 
+# pyenv
+.python-version
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
