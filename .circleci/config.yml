@@ -20,19 +20,34 @@ jobs:
     steps:
       - checkout
 
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "test-requirements.txt" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
       - run:
           name: install dependencies
           command: |
+            python3 -m venv venv
+            . venv/bin/activate
             sudo pip install -r test-requirements.txt
+
+      - save_cache:
+          paths:
+            - ./venv
+          key: v1-dependencies-{{ checksum "test-requirements.txt" }}
 
       - run:
           name: run tests
           command: |
+            . venv/bin/activate
             make test
 
       - run:
           name: send coverage to coveralls
           command: |
+            . venv/bin/activate
             coveralls
 
       - store_test_results:
