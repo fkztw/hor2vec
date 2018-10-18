@@ -22,9 +22,9 @@ jobs:
 
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "requirements-test.txt" }}
+          - pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements-test.txt" }}
           # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+          - pip-cache-
 
       - run:
           name: install dependencies
@@ -36,7 +36,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: v1-dependencies-{{ checksum "requirements-test.txt" }}
+          key: pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements-test.txt" }}
 
       - run:
           name: run tests
