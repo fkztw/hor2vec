@@ -273,7 +273,7 @@ $ python3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt
 
 or
 
-`pip install -r test-requirements.txt`
+`pip install -r requirements-test.txt`
 
 ### Testings
 
