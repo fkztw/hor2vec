@@ -19,30 +19,38 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
+
       - run:
           name: install dependencies
           command: |
             sudo pip install -r test-requirements.txt
+
       - run:
           name: run tests
           command: |
             make test
+
       - run:
           name: send coverage to coveralls
           command: |
             coveralls
+
       - store_test_results:
-          path: htmlcov
+          path: test-reports
+
       - store_artifacts:
           path: htmlcov
+
   test-3.6:
     <<: *test-template
     docker:
       - image: circleci/python:3.6
+
   test-3.5:
     <<: *test-template
     docker:
       - image: circleci/python:3.5
+
   test-3.4:
     <<: *test-template
     docker:
