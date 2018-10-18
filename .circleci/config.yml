@@ -44,18 +44,22 @@ jobs:
             . venv/bin/activate
             make test
 
+      - store_test_results:
+          path: test-reports
+      - store_artifacts:
+          path: test-reports
+          destination: test-reports
+
+      - store_artifacts:
+          path: htmlcov
+          destination: htmlcov
+
       - run:
           name: send coverage to coveralls
           command: |
             . venv/bin/activate
             coveralls
 
-      - store_test_results:
-          path: test-reports
-
-      - store_artifacts:
-          path: htmlcov
-          destination: htmlcov
 
   test-3.6:
     <<: *test-template
