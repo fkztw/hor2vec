@@ -6,5 +6,5 @@
 #
 
 
-__version__ = '2.1.1'
+__version__ = '2.1.2'
 __doc__ = 'Change your horizontal pure text to vertical with some options.'
