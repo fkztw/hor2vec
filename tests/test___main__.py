@@ -48,6 +48,8 @@ class TestMain(object):
                         '-fw'],
             'case7': [
                         'input', 'tests/data/ascii_test_data.txt'],
+            'case8': [
+                        'input', 'tests/data/horizontal_punctuation_marks_test_data.txt'],
         }
 
         cases_saved = {}
@@ -139,6 +141,8 @@ class TestMain(object):
                         '        i\n'
                         '        o\n'
                         '        n\n',
+
+            'case8':    '→←↑↓︑｜｜｜｜︱∫∫＼︙︰‥︔॥︵︶﹇﹈︷︿﹀︸﹁﹂﹃﹄︻︼︗︘﹁﹂||︐︑\n',
         }
         return cases_outputs
 
@@ -284,6 +288,23 @@ class TestMain(object):
         assert 'no_rotate' in vars(args)
         assert 'full_width' in vars(args)
         assert args.input.name == 'tests/data/ascii_test_data.txt'
+        assert args.sep == ''
+        assert args.line_direction == 'l2r'
+        assert args.word_direction == 't2b'
+        assert args.no_rotate is False
+        assert args.full_width is False
+
+        args = fixture_args['case8']
+        assert args is not None
+        assert isinstance(args, argparse.Namespace)
+        assert len(vars(args)) == 6
+        assert 'input' in vars(args)
+        assert 'sep' in vars(args)
+        assert 'line_direction' in vars(args)
+        assert 'word_direction' in vars(args)
+        assert 'no_rotate' in vars(args)
+        assert 'full_width' in vars(args)
+        assert args.input.name == 'tests/data/horizontal_punctuation_marks_test_data.txt'
         assert args.sep == ''
         assert args.line_direction == 'l2r'
         assert args.word_direction == 't2b'

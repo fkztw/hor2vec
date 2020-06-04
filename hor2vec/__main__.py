@@ -8,6 +8,9 @@ import sys
 HALFWIDTH_SPACE = ' '
 FULLWIDTH_SPACE = '　'
 
+HORIZONTAL_PUNCTUATION_MARKS = '↑↓←→、ー─−－—〜～／…‥：；＝（）［］｛＜＞｝「」『』【】〖〗｢｣ｰ＿，､'
+VERTICAL_PUNCTUATION_MARKS =   '→←↑↓︑｜｜｜｜︱∫∫＼︙︰‥︔॥︵︶﹇﹈︷︿﹀︸﹁﹂﹃﹄︻︼︗︘﹁﹂||︐︑'
+
 
 def get_args():
     parser = argparse.ArgumentParser()
@@ -68,7 +71,7 @@ def get_args():
         '-fw', '--full-width',
         action='store_true',
         default=False,
-        help="If this option has been given, hor2vec will use fullwidth characters instead of halfwidth characters."
+        help="If this option has been given, hor2vec will use fullwidth characters instead of halfwidth characters. Some half-width punctuation marks don't have vertical way. You can enable this option to make it show full-width in vertical way."
     )
 
     return parser.parse_args()
@@ -133,13 +136,19 @@ def hor2vec(args):
     else:
         output_lines_array = tuple(zip(*filled_input_lines_array))
 
-    output_lines = '\n'.join(
+    output_str = '\n'.join(
         (args.sep).join(output_line_array)[
             ::(1 - 2*(args.line_direction == "r2l"))].rstrip()
         for output_line_array in output_lines_array[
             ::(1 - 2*(args.word_direction == "b2t"))]
     )
-    print(output_lines)
+
+    # Change horizontal punctuation marks to vertical punctuation marks
+    output_str = output_str.translate(
+        str.maketrans(HORIZONTAL_PUNCTUATION_MARKS, VERTICAL_PUNCTUATION_MARKS)
+    )
+
+    print(output_str)
 
 
 def main():

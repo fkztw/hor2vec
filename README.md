@@ -35,31 +35,32 @@ Change your horizontal pure text to vertical with some options.
 ## Usage
 
 ```
-usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [-fw]
-               [input]
+usage: hor2vec [-h] [-s SEP] [-ld {l2r,r2l}] [-wd {t2b,b2t}] [-nr] [-fw] [input]
 
 positional arguments:
-  input                 The file has horizontal pure text to be changed to
-                        vertical. If not been given in the command, will use
-                        the stdin as input.
+  input                 The file has horizontal pure text to be changed to vertical. If not
+                        been given in the command, will use the stdin as input.
 
 optional arguments:
   -h, --help            show this help message and exit
   -s SEP, --sep SEP, --separator SEP
-                        The separator between lines. Default is '', you can
-                        use ' ', '|' or any other strings.
+                        The separator between lines. Default is '', you can use ' ', '|' or any
+                        other strings.
   -ld {l2r,r2l}, --line-direction {l2r,r2l}
-                        The reading direction of each line. Default is 'l2r'
-                        (left to right), you can choose 'r2l' (right to left).
+                        The reading direction of each line. Default is 'l2r' (left to right),
+                        you can choose 'r2l' (right to left).
   -wd {t2b,b2t}, --word-direction {t2b,b2t}
-                        The reading direction of each word/character. Default
-                        is 't2b' (top to bottom), you can choose 'b2t' (bottom
-                        to top).
-  -nr, --no-rotate      If this option has been given, hor2vec won't rotate
-                        the input.
-  -fw, --full-width     If this option has been given, hor2vec will use
-                        fullwidth characters instead of halfwidth characters.
+                        The reading direction of each word/character. Default is 't2b' (top to
+                        bottom), you can choose 'b2t' (bottom to top).
+  -nr, --no-rotate      If this option has been given, hor2vec won't rotate the input.
+  -fw, --full-width     If this option has been given, hor2vec will use fullwidth characters
+                        instead of halfwidth characters. Some half-width punctuation marks
+                        don't have vertical way. You can enable this option to make it show
+                        full-width in vertical way.
 ```
+
+- Some half-width punctuation marks don't have vertical way.
+    - You can enable option `--full-width` to make it show full-width in vertical way.
 
 ### Usage - Docker
 
