@@ -21,3 +21,6 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 test-reports/
+
+# virtualenv
+venv/
