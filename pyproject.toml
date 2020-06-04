@@ -4,7 +4,7 @@ build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
 module = "hor2vec"
-author = "Shun-Yi Jheng"
+author = "Frank Jheng"
 author-email = "m157q.tw@gmail.com"
 home-page = "https://github.com/M157q/hor2vec"
 description-file="README.md"
