@@ -61,6 +61,21 @@ optional arguments:
                         fullwidth characters instead of halfwidth characters.
 ```
 
+### Usage - Docker
+
+- Get the Docker image of `hor2vec`
+    - `docker pull M157q/hor2vec`
+- Run Docker image and use `stdin` as input
+    - `docker run -it --rm M157q/hor2vec`
+    - type in the input string
+    - Press `Ctrl-D`
+    - Get the output
+- Run Docker image use local file as input
+    - `docker run -it --rm -v $PWD:/srv/work m157q/hor2vec ${FILENAME}`
+    - e.g., If you have a file `a` in your current directory:
+        - `docker run -it --rm -v $PWD:/srv/work m157q/hor2vec a`
+    - Get the output
+
 ---
 
 ## Examples
