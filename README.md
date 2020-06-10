@@ -30,6 +30,10 @@ Change your horizontal pure text to vertical with some options.
 
 `$ pip install hor2vec`
 
+### Docker
+
+- `$ docker pull M157q/hor2vec`
+
 ---
 
 ## Usage
@@ -62,20 +66,20 @@ optional arguments:
 - Some half-width punctuation marks don't have vertical way.
     - You can enable option `--full-width` to make it show full-width in vertical way.
 
+
 ### Usage - Docker
 
-- Get the Docker image of `hor2vec`
-    - `docker pull M157q/hor2vec`
-- Run Docker image and use `stdin` as input
-    - `docker run -it --rm M157q/hor2vec`
-    - type in the input string
-    - Press `Ctrl-D`
-    - Get the output
-- Run Docker image and use local file as input
-    - `docker run -it --rm -v $PWD:/srv/work m157q/hor2vec ${FILENAME}`
-    - e.g., If you have a file `a` in your current directory:
-        - `docker run -it --rm -v $PWD:/srv/work m157q/hor2vec a`
-    - Get the output
+- There are 2 ways to use the docker image
+    - Use `stdin` as input
+        - `docker run -it --rm M157q/hor2vec`
+        - type in the input string
+        - Press `Ctrl-D`
+        - Get the output
+    - Use local file as input
+        - `docker run -it --rm -v $PWD:/srv/work m157q/hor2vec ${FILENAME}`
+        - e.g., If you have a file `a` in your current directory:
+            - `docker run -it --rm -v $PWD:/srv/work m157q/hor2vec a`
+        - Get the output
 
 ---
 
