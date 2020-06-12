@@ -52,7 +52,7 @@ variables:
 
       - restore_cache:
           keys:
-          - pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements-test.txt" }}
+          - pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "pyproject.toml" }}
           # fallback to using the latest cache if no exact match is found
           - pip-cache-
 
@@ -61,13 +61,13 @@ variables:
           command: |
             python3 -m venv venv
             . venv/bin/activate
-            pip install -U pip
-            pip install -r requirements-test.txt
+            pip install -U flit
+            make install
 
       - save_cache:
           paths:
             - ./venv
-          key: pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements-test.txt" }}
+          key: pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "pyproject.toml" }}
 
       - run:
           name: run tests
@@ -137,7 +137,7 @@ jobs:
 
       - restore_cache:
           keys:
-          - pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements-test.txt" }}
+          - pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "pyproject.toml" }}
 
       - run:
           name: install dependencies
@@ -150,7 +150,7 @@ jobs:
       - save_cache:
           paths:
             - ./venv
-          key: pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "requirements-test.txt" }}
+          key: pip-cache-{{ arch }}-{{ .Environment.CIRCLE_JOB }}-{{ checksum "pyproject.toml" }}
 
       - run:
           name: upload to pypi

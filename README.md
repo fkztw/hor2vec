@@ -287,9 +287,9 @@ $ python3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt
 
 ## Development
 
-### Install test dependencies
+### Install test dependencies into your current Python virtual environment
 
-`pip install -r requirements-test.txt`
+`make install`
 
 
 ### Testings
