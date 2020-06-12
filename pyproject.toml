@@ -1,3 +1,4 @@
+# Flit
 [build-system]
 requires = ["flit"]
 build-backend = "flit.buildapi"
@@ -12,3 +13,18 @@ classifiers = ["License :: OSI Approved :: GNU General Public License v3 or late
 
 [tool.flit.scripts]
 hor2vec = "hor2vec.__main__:main"
+
+
+# Tox
+[tool.tox]
+legacy_tox_ini = """
+
+[tox]
+isolated_build = True
+skipsdist = true
+envlist = python3.4,python3.5,python3.6,python3.7,python3.8
+
+[testenv]
+deps=-rrequirements-test.txt
+commands = python -m pytest -vv --flake8 --cov hor2vec/ --cov-report html --cov-report term --junitxml=test-reports/junit.xml --flake8
+"""
