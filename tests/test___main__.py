@@ -1,3 +1,4 @@
+# flake8: noqa
 from hor2vec import __main__    # this import trashed the test coverage
 
 # import hor2vec

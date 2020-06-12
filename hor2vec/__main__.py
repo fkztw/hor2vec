@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import string
 import sys
 
 
@@ -9,7 +8,7 @@ HALFWIDTH_SPACE = ' '
 FULLWIDTH_SPACE = '　'
 
 HORIZONTAL_PUNCTUATION_MARKS = '↑↓←→、ー─−－—〜～／…‥：；＝（）［］｛＜＞｝「」『』【】〖〗｢｣ｰ＿，､'
-VERTICAL_PUNCTUATION_MARKS =   '→←↑↓︑｜｜｜｜︱∫∫＼︙︰‥︔॥︵︶﹇﹈︷︿﹀︸﹁﹂﹃﹄︻︼︗︘﹁﹂||︐︑'
+VERTICAL_PUNCTUATION_MARKS = '→←↑↓︑｜｜｜｜︱∫∫＼︙︰‥︔॥︵︶﹇﹈︷︿﹀︸﹁﹂﹃﹄︻︼︗︘﹁﹂||︐︑'
 
 
 def get_args():
@@ -71,7 +70,12 @@ def get_args():
         '-fw', '--full-width',
         action='store_true',
         default=False,
-        help="If this option has been given, hor2vec will use fullwidth characters instead of halfwidth characters. Some half-width punctuation marks don't have vertical way. You can enable this option to make it show full-width in vertical way."
+        help=(
+            "If this option has been given, hor2vec will use fullwidth "
+            "characters instead of halfwidth characters. Some half-width "
+            "punctuation marks don't have vertical way. You can enable this "
+            "option to make it show full-width in vertical way."
+        )
     )
 
     return parser.parse_args()
