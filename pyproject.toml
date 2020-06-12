@@ -11,6 +11,18 @@ home-page = "https://github.com/M157q/hor2vec"
 description-file="README.md"
 classifiers = ["License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)"]
 
+[tool.flit.metadata.requires-extra]
+test = [
+    "coverage>=5.0a4",
+    "coveralls>=1.11.0",
+    "pytest>=4.6.11",
+    "pytest-cov>=2.8.1",
+    "flake8==3.8.3",
+    "pytest-flake8==1.0.6",
+    "tox>=3.14.0",
+    "tox-pyenv==1.1.0",
+]
+
 [tool.flit.scripts]
 hor2vec = "hor2vec.__main__:main"
 
@@ -25,6 +37,8 @@ skipsdist = true
 envlist = py34,py35,py36,py37,py38
 
 [testenv]
-deps=-rrequirements-test.txt
-commands = python -m pytest -vv --flake8 --cov hor2vec/ --cov-report html --cov-report term --junitxml=test-reports/junit.xml --flake8
+whitelist_externals = flit
+commands =
+    flit install --extras test --python {envpython}
+    pytest -vv --flake8 --cov hor2vec/ --cov-report html --cov-report term --junitxml=test-reports/junit.xml --flake8
 """
