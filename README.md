@@ -32,7 +32,7 @@ Change your horizontal pure text to vertical with some options.
 
 ### Docker
 
-- `$ docker pull M157q/hor2vec`
+`$ docker pull M157q/hor2vec`
 
 ---
 
