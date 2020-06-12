@@ -22,7 +22,7 @@ legacy_tox_ini = """
 [tox]
 isolated_build = True
 skipsdist = true
-envlist = python3.4,python3.5,python3.6,python3.7,python3.8
+envlist = py34,py35,py36,py37,py38
 
 [testenv]
 deps=-rrequirements-test.txt
