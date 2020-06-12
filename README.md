@@ -287,16 +287,15 @@ $ python3 hor2vec -nr -ld r2l -wd b2t tests/data/english_test_data.txt
 
 ## Development
 
-### Install dev dependencies
-
-`pipenv install --dev`
-
-or
+### Install test dependencies
 
 `pip install -r requirements-test.txt`
+
 
 ### Testings
 
 `python -m pytest --cov hor2vec/  --cov-report html --cov-report term`
+
 or just
+
 `make test`

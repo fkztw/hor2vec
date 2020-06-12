@@ -41,7 +41,7 @@ workflows:
             branches:
               ignore: /.*/
 variables:
-  test-template.8: &test-template
+  test-template: &test-template
     docker:
       # Available CircleCI Python images: https://hub.docker.com/r/circleci/python/tags/
       - image: circleci/python:3.8
